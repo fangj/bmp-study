@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<title>bmp</title>
+  <script src="jsbmp.js"></script>
+  <script src="canvas2bmp.js"></script>
+</head>
+<body>
+  <canvas id="myCanvas" width="200" height="100"/>
+  <script>
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      ctx.fillStyle="#FF0000";
+      ctx.fillRect(10,10,20,20);
+      var bmp1=createBMP(c);
+      var base64ed1=btoa(bmp1);
+      console.log(base64ed1);
+
+      var image = document.createElement('img');
+      image.src = 'data:image/bmp;base64,' + base64ed1;
+      document.body.appendChild(image);
+  </script>
+</body>
+</html>
