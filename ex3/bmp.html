@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<title>bmp</title>
+  <script src="canvas2bmp.js"></script>
+</head>
+<body>
+  <canvas id="myCanvas" width="200" height="100"/>
+  <script>
+      var c=document.getElementById("myCanvas");
+      var ctx=c.getContext("2d");
+      ctx.fillStyle="#FF0000";
+      ctx.fillRect(10,10,20,20);
+
+      ctx.fillStyle="#FF0000";
+      ctx.beginPath();
+      ctx.arc(70,18,15,0,Math.PI*2,true);
+      ctx.closePath();
+      ctx.fill();
+
+      var grd=ctx.createLinearGradient(0,0,175,50);
+      grd.addColorStop(0,"#FF0000");
+      grd.addColorStop(1,"#00FF00");
+      ctx.fillStyle=grd;
+      ctx.fillRect(0,50,175,90);
+
+      ctx.font = "48px serif";
+      ctx.fillText("Hello world", 10, 50);
+
+      var base64ed=canvas2based64monobitmap(c);
+      var image = document.createElement('img');
+      image.src = 'data:image/bmp;base64,' + base64ed;
+      document.body.appendChild(image);
+
+      var base64ed2=canvas2based64monobitmap(c,0.5,'none');
+      var image2 = document.createElement('img');
+      image2.src = 'data:image/bmp;base64,' + base64ed2;
+      document.body.appendChild(image2);
+  </script>
+</body>
+</html>
