@@ -56,4 +56,7 @@ String.fromCodePoint() 32bit
 
 ES5提供String.fromCharCode方法，用于从码点返回对应字符，但是这个方法不能识别32位的UTF-16字符（Unicode编号大于0xFFFF）。
 
-
+抖动算法
+http://stackoverflow.com/questions/12422407/monochrome-dithering-in-javascript-bayer-atkinson-floyd-steinberg
+https://github.com/meemoo/iframework/blob/gh-pages/src/nodes/image-monochrome-worker.js
+https://app.meemoo.org/#gist/3721129
