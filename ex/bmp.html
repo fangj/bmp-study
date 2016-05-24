@@ -13,6 +13,22 @@
       var ctx=c.getContext("2d");
       ctx.fillStyle="#FF0000";
       ctx.fillRect(10,10,20,20);
+
+      ctx.fillStyle="#FF0000";
+      ctx.beginPath();
+      ctx.arc(70,18,15,0,Math.PI*2,true);
+      ctx.closePath();
+      ctx.fill();
+
+      var grd=ctx.createLinearGradient(0,0,175,50);
+      grd.addColorStop(0,"#FF0000");
+      grd.addColorStop(1,"#00FF00");
+      ctx.fillStyle=grd;
+      ctx.fillRect(0,50,175,90);
+
+      ctx.font = "48px serif";
+      ctx.fillText("Hello world", 10, 50);
+
       var bmp1=createBMP(c);
       var base64ed1=btoa(bmp1);
       console.log(base64ed1);
